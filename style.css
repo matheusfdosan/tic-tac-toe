@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-family: var(--poppins_font);
+}
+
+:root {
+  --poppins_font: "Poppins", sans-serif;
+  --nunito: "Nunito", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  height: 100vh;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow: hidden;
+  font-size: 1.6rem;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.alternation {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.alternation span {
+  color: red;
+  transition: all 200ms ease-in;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.square_line {
+  display: flex;
+  gap: 0;
+}
+
+.square {
+  appearance: none;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid #111;
+  position: relative;
+}
+
+.square:checked::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  font-family: var(--nunito);
+}
+
+.markedX:checked::before {
+  content: "X";
+  color: #ff1e00;
+}
+
+.markedO:checked::before {
+  content: "O";
+  color: #1900ff;
+}
+
+.winner_screen,
+.draw_screen {
+  display: none;
+}
+
+.winner_screen.active,
+.draw_screen.active {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 23;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+}
+
+.winner_screen.active h2,
+.draw_screen.active h2 {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.winner_screen.active span {
+  display: flex;
+  justify-content: center;
+  font-size: 34rem;
+  font-family: var(--nunito);
+}
+
+.winner_screen.active img {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50rem;
+}
+
+.draw_screen.active img {
+  width: 45rem;
+  display: block;
+  margin: auto;
+}
+
+.winner_screen.active button,
+.draw_screen.active button {
+  display: block;
+  margin: auto;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  border: 2px solid #000;
+  background-color: #fff;
+  cursor: pointer;
+  transition: transform 200ms ease;
+}
+
+.winner_screen.active button:hover {
+  transform: scale(1.2);
+}
